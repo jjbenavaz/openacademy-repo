@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, _
 
 
 class Course(models.Model):
@@ -22,10 +22,10 @@ class Course(models.Model):
         if default is None:
             default = {}
         copied_count = self.search_count([
-            ('name', 'ilike', 'Copy of %s' % (self.name))])
+            ('name', 'ilike', _('Copy of %s') % (self.name))])
         if not copied_count:
-            new_name = "Copy of %s" % (self.name)
+            new_name = _("Copy of %s") % (self.name)
         else:
-            new_name = "Copy of %s (%s)" %(self.name, copied_count)
+            new_name = _("Copy of %s (%s)") %(self.name, copied_count)
         default['name'] = new_name
         return super(Course, self).copy(default)

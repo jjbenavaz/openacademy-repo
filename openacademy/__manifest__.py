@@ -13,12 +13,16 @@
     'category': 'Uncategorized',
     'version': '0.1',
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'board'],
     # always loaded
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'views/openacademy_course_view.xml',
         'views/openacademy_partner_view.xml',
+        'wizard/openacademy_wizard_view.xml',
+        'views/openacademy_session_board_view.xml',
+        'reports/openacademy_session_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
