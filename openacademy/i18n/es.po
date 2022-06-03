@@ -225,7 +225,7 @@ msgstr "Valor de 'lugares' incorrecto"
 #: code:addons/openacademy/models/openacademy_session.py:0
 #, python-format
 msgid "Increase seats or remove excess attendees"
-msgstr "Incremente el numero de lugares reduzca el numero de asistentes"
+msgstr "Incremente el número de lugares reduzca el número de asistentes"
 
 #. module: openacademy
 #: model:ir.model.fields,field_description:openacademy.field_openacademy_session__instructor_id
