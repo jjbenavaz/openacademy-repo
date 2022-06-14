@@ -8,14 +8,14 @@ class Course(models.Model):
     name = fields.Char(string="Title", required=True)
     description = fields.Text()
     responsible_id = fields.Many2one(
-            'res.users', index=True, ondelete='set null',
-            default=lambda self, *a: self.env.uid)
+        'res.users', index=True, ondelete='set null',
+        default=lambda self, *a: self.env.uid)
     session_ids = fields.One2many('openacademy.session', 'course_id')
 
     _sql_constraints = [
-            ('name_description_check','CHECK( name != description)',
-            "The title of the course should not be the description"),
-            ('name_unique','UNIQUE(name)',"The course title must be unique"),
+        ('name_description_check', 'CHECK( name != description)',
+        "The title of the course should not be the description"),
+        ('name_unique', 'UNIQUE(name)', "The course title must be unique"),
         ]
 
     def copy(self, default=None):
@@ -26,6 +26,6 @@ class Course(models.Model):
         if not copied_count:
             new_name = _("Copy of %s") % (self.name)
         else:
-            new_name = _("Copy of %s (%s)") %(self.name, copied_count)
+            new_name = _("Copy of %s (%s)") % (self.name, copied_count)
         default['name'] = new_name
-        return super(Course, self).copy(default)
+        return super().copy(default)
